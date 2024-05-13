@@ -1,0 +1,43 @@
+.vignette {
+  position: relative;
+  z-index: 0;
+}
+
+.vignette::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #806f5d5c 0%, #ffffff 100%);
+}
+
+.vignette::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  background-color: #ae967d; /* Adjust color and opacity as needed */
+}
+
+/* Example usage */
+.vinyl-image {
+  background-image: url("/dalle-duilohcol.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.services-image {
+  background-image: url("/dalle-duilohcol.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
