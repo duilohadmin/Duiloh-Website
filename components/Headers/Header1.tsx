@@ -6,7 +6,9 @@ function Header1() {
     <div className="w-full h-50px flex items-center absolute z-50 bg-header1-gradient ">
       {/* Left-aligned LOGO */}
       <div className="flex-grow-0">
-        <div className="text-lg font-bold ml-10 text-black ">LOGO</div>
+        <div className="text-lg font-extrabold tracking-widest ml-10 text-black font-sugar">
+          ` DUILOH LOGO `
+        </div>
       </div>
 
       {/* Right-aligned elements grouped together */}
@@ -14,44 +16,19 @@ function Header1() {
         {/* Navigation Buttons */}
         <div className="flex font-mont font-medium text-black ">
           <Link href="/" className=" h-[80px]  ">
-            <button
-              className="h-[80px] z-50"
-              onClick={() => console.log("Home clicked")}
-            >
-              HOME
-            </button>
+            <button className="h-[80px] z-50">HOME</button>
           </Link>
           <Link href="/bio" className=" h-[80px] ml-10 ">
-            <button
-              className=" h-[80px]"
-              onClick={() => console.log("Bio clicked")}
-            >
-              BIO
-            </button>
+            <button className=" h-[80px]">BIO</button>
           </Link>
           <Link href="/services " className="h-[80px] ml-10">
-            <button
-              className=" h-[80px] "
-              onClick={() => console.log("Services clicked")}
-            >
-              SERVICES
-            </button>
+            <button className=" h-[80px] ">SERVICES</button>
           </Link>
-          <Link href="/shop" className=" h-[80px] ml-10 ">
-            <button
-              className=" h-[80px]"
-              onClick={() => console.log("Shop clicked")}
-            >
-              SHOP
-            </button>
+          <Link href="/beats" className=" h-[80px] ml-10 ">
+            <button className=" h-[80px]">BEATS</button>
           </Link>
           <Link href="/contact" className="0 h-[80px] ml-10 ">
-            <button
-              className=" h-[80px]"
-              onClick={() => console.log("Contact clicked")}
-            >
-              CONTACT
-            </button>
+            <button className=" h-[80px]">CONTACT</button>
           </Link>
         </div>
 
@@ -68,11 +45,19 @@ function Header1() {
               height="16"
             />
           </button>
+          <Image
+            src="/x-black.svg"
+            alt="x-twitter"
+            width={"14"}
+            height={"14"}
+            onClick={() => openInNewTab("https://x.com/Duiloh")}
+            className=" cursor-pointer ml-2 "
+          />
           <button
             onClick={() =>
               openInNewTab("https://soundcloud.com/user-932376509")
             }
-            className="ml-5 h-[20px] w-[20px]"
+            className="ml-2 h-[20px] w-[20px]"
           >
             <Image
               alt="soundcloud"

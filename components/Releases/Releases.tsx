@@ -45,9 +45,11 @@ function Releases() {
     },
   };
   return (
-    <div className=" pt-14 pb-14 md:pt-32 md:pb-20 font-mont text-black">
+    <div className=" pt-14 pb-14 md:pt-32 md:pb-20 font-mont text-white">
       <div className=" flex flex-col items-center py-6 md:py-16">
-        <h2 className="text-[16px] md:text-[28px]  font-medium ">RELEASES</h2>
+        <h2 className="text-[16px] md:text-[28px]  font-medium ">
+          FAN FAVORITES
+        </h2>
         <p className="text-[10px] md:text-[18px]">Check out these bangers</p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 px-8 ">

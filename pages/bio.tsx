@@ -28,24 +28,33 @@ function bio() {
               h-[26rem] bg-cover bg-center bg-no-repeat ${styles.vignette} ${styles["vinyl-image"]}`}
         >
           <div className="absolute inset-0 flex items-center justify-center">
-            <h2 className="italic text-[4rem] md:text-[6rem] tracking-widest font-bold text-black drop-shadow-2xl opacity-95">
+            <h2
+              className=" text-[4rem] md:text-[6rem] italic text-white drop-shadow-2xl opacity-95"
+              style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
+            >
               BIO
             </h2>
           </div>
         </div>
         {/* BLUR TRANSITION DIVIDER */}
         <div className="z-10 h-[50px] -mt-[49px] md:-mt-[50px] text-2xl font-bold  w-full text-center bg-gradient-to-b from-transparent to-prim"></div>
-        <h1 className="mt-10 ml-32 italic font-bold text-black text-[40px]  tracking-wider">
+        <h1
+          className="mt-10 ml-6 md:ml-32  font-bold font-bsugar text-white text-[40px]  tracking-wider"
+          style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
+        >
           THE
         </h1>
-        <h1 className="ml-32 italic font-bold text-black text-[50px] tracking-wider">
+        <h1
+          className="ml-6 md:ml-32 font-bsugar text-white text-[50px] tracking-wider"
+          style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
+        >
           DUILOH FILES
         </h1>
         <div className="relative h-full">
           <div
             className="absolute inset-0 
                           bg-[url('/texture-05.jpg')] bg-cover bg-center  rounded-3xl 
-                          shadow-xl h-auto opacity-[33%] 
+                           shadow-bonewhite shadow-xl h-auto opacity-[80%] 
                           mx-5"
           />
           <div
@@ -56,9 +65,9 @@ function bio() {
                       flex flex-col
                       
                         lg:flex-row  lg:px-32 
-                        font-mont font-medium text-[18px] text-black"
+                        font-mont text-[18px] text-black"
           >
-            <div className="z-10 order-2 lg:order-1 mb-4 lg:mb-0 lg:flex-1 lg:pr-6 bg-cream bg-opacity-40 px-6">
+            <div className="z-10 order-2 lg:order-1 mb-4 lg:mb-0 lg:flex-1 lg:pr-6 bg-cream bg-opacity-90 px-6">
               <p className=" my-4">
                 History pulses through each beat Duiloh crafts, a journey that
                 began with a passion for rhythm that ignited at a young age. At
@@ -93,13 +102,16 @@ function bio() {
                 at a time.
               </p>
             </div>
-            <div className=" order-1 lg:order-2 relative lg:flex-1 mb-4 lg:mb-0 h-[300px] lg:h-auto">
-              <Image
-                src={"/rappa2.jpeg"}
-                alt="dj"
-                layout="fill"
-                objectFit="cover"
-              />
+            <div className="order-1 lg:order-2 relative lg:flex-1 mb-4 lg:mb-0 h-[300px] lg:h-auto">
+              <div className="absolute inset-0">
+                <Image
+                  src="/rappa2.jpeg"
+                  alt="dj"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
             </div>
           </div>
         </div>

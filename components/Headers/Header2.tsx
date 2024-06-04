@@ -30,7 +30,9 @@ const Header2: React.FC = () => {
     >
       {/* Left-aligned LOGO */}
       <div className="flex-grow-0">
-        <div className="text-lg font-bold ml-10 text-white">LOGO</div>
+        <div className="text-lg  font-extrabold  tracking-widest font-sugar ml-10 text-white">
+          ` DUILOH LOGO `
+        </div>
       </div>
 
       {/* Right-aligned elements grouped together */}
@@ -46,8 +48,8 @@ const Header2: React.FC = () => {
           <Link href="/services" className=" h-[40px]">
             <button className="ml-10 h-[40px]">SERVICES</button>
           </Link>
-          <Link href="/shop" className=" h-[40px]">
-            <button className="ml-10 h-[40px]">SHOP</button>
+          <Link href="/beats" className=" h-[40px]">
+            <button className="ml-10 h-[40px]">BEATS</button>
           </Link>
           <Link href="/contact" className=" h-[40px]">
             <button className="ml-10 h-[40px]">CONTACT</button>
@@ -67,11 +69,19 @@ const Header2: React.FC = () => {
               height="16"
             />
           </button>
+          <Image
+            src="/x-white.svg"
+            alt="x-twitter"
+            width={"14"}
+            height={"14"}
+            onClick={() => openInNewTab("https://x.com/Duiloh")}
+            className=" cursor-pointer ml-2 "
+          />
           <button
             onClick={() =>
               openInNewTab("https://soundcloud.com/user-932376509")
             }
-            className="ml-5 h-[20px] w-[20px]"
+            className="ml-2 h-[20px] w-[20px]"
           >
             <Image
               alt="soundcloud"

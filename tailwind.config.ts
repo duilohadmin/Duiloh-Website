@@ -21,10 +21,11 @@ const config: Config = {
       },
       fontFamily: {
         mont: ["Montserrat", "ui-sans-serif"],
+        sugar: ["BrownSugar"],
       },
       colors: {
-        prim: "#FFFFFF",
-        second: "#000000",
+        prim: "#181818",
+        second: "#FFFFFF",
         tert: "#806F5D",
         quater: "#ccff33",
         /*               */

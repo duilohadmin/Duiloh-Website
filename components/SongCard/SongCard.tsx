@@ -24,18 +24,19 @@ function SongCard({
       <div className="relative flex-grow cursor-pointer overflow-hidden">
         <div className="transition-transform duration-1000 ease-in-out hover:scale-110">
           <Link href={youtube} rel="noopener noreferencer" target="_blank">
-            <Image
-              src={imgSrc}
-              alt="song"
-              layout="responsive"
-              width={2}
-              height={3}
-              className="object-cover"
-            />
+            <div className="relative w-full h-0 pb-[100%]">
+              <Image
+                src={imgSrc}
+                alt="song"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+            </div>
           </Link>
         </div>
       </div>
-      <div className="flex-grow bg-cream ">
+      <div className="flex-grow bg-cream pb-4">
         <div className="h-14 flex flex-col justify-center">
           <p
             className=" mt-2 text-sm px-2

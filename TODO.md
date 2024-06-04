@@ -1,4 +1,23 @@
-swag nation!
+0 Replace SoundCloud Player with Music Player Ambience Component (40 min)
+
+0 Use Cloudflare for CDN
+.
+--5min Align the Duiloh Files Title
+--15min Align the Beat items to center horizontally with respect to the card
+-- Wavesurfer
+-- Add Beatstars link to BEATS card
+-- Format Services Card for Mobile
+--6hrs Update beats` to have “ELEMENTS OF TRAP” card design to preview beats and link to BeatStars
+-- If you’re a rapper/singer who loves chill, late night, early morning beats then take a trip to YouTube and Beatstars and search Duiloh Instrumentals! Claim your 10% discount with code: DUILOHSITE
+.
+-- 20 Black background with White Text (20 min)
+--idk Use FONT ’BROWN SUGAR’ for Page Name and “THE DUILOH FILES”
+.
+--30min - Replace button with Streaming Platform Icons to link to his artist page
+Youtube, TikTok, Facebook
+.
+10min - (For Small Bio under Landing Page Title) The luxurious sound of Duiloh will make any cheap set of headphones turn into a concert-worthy experience.
+.
 --Add New Headers to ALL Pages!!!
 --Landing Page Picture
 --Landing Page

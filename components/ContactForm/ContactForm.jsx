@@ -32,11 +32,11 @@ export default function ContactForm() {
 
   return (
     <div
-      className="lg:flex text-black font-mont
-                    bg-tert bg-opacity-90 bg-gradient-to-b from-white
-                    pt-6"
+      className="lg:flex text-white font-mont
+                    bg-tert bg-opacity-90 bg-gradient-to-b from-prim
+                    pt-6 "
     >
-      <form onSubmit={handleSubmit} className="flex flex-col px-8">
+      <form onSubmit={handleSubmit} className="flex flex-col px-8 w-full">
         <div className="flex w-full">
           <div className="flex flex-col w-full">
             <label htmlFor="name">NAME</label>
@@ -47,7 +47,7 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               className="border border-gray-400 
-              bg-cream
+              bg-cream text-black
               h-8 focus:outline-none px-2
               w-full"
             />
@@ -62,7 +62,7 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               className="border border-gray-400 h-8 
-              bg-cream
+              bg-cream text-black
               focus:outline-none px-2
               w-full"
             />
@@ -73,7 +73,9 @@ export default function ContactForm() {
             />
           </div>
         </div>
-        <label htmlFor="message">MESSAGE</label>
+        <label htmlFor="message" className="mt-2">
+          MESSAGE
+        </label>
         <textarea
           id="message"
           name="message"
@@ -81,7 +83,7 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           className="border border-gray-400 
-          bg-cream
+          bg-cream text-black
           h-80 focus:outline-none p-2"
         />
         <ValidationError
@@ -101,13 +103,13 @@ export default function ContactForm() {
           </button>
         </div>
       </form>
-      <div className="relative w-full h-[36rem]">
+      <div className="relative h-[300px] md:w-full md:h-auto">
         <Image
-          src="/contactpic-duiloh.jpg"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          alt="clemson-bev"
+          src="/d-contact.jpg"
+          alt="contact-paperplane"
+          fill={true}
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
     </div>

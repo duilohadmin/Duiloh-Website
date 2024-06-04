@@ -48,13 +48,13 @@ const SlideOverMenu: React.FC<SlideOverMenuProps> = ({ isBlack }) => {
       <div
         className={`fixed inset-y-0 left-0 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out bg-dbrown z-40`}
-        style={{ marginTop: "45px" }}
+        } transition-transform duration-300 ease-in-out bg-tert bg-gradient-to-tr from-white z-40`}
+        style={{ marginTop: "40px" }}
       >
-        <div className="w-screen h-full flex flex-col bg-black bg-opacity-50">
-          <div className="text-white p-5 flex flex-col items-center flex-grow">
-            <h1 className="text-4xl font-bold">L O G O</h1>
-            <ul className="text-center mt-16 font-medium text-[2rem]">
+        <div className="w-[75vw] h-full flex flex-col bg-black bg-opacity-50">
+          <div className="text-white p-5 flex flex-col items-center flex-grow font-sugar">
+            <h1 className="text-4xl font-bold">D U I L O H</h1>
+            <ul className=" mt-16 font-medium text-[2rem]">
               <Link href="/">
                 <li onClick={() => handleLinkClick("/")}>HOME</li>
               </Link>
@@ -71,45 +71,43 @@ const SlideOverMenu: React.FC<SlideOverMenuProps> = ({ isBlack }) => {
                   SERVICES
                 </li>
               </Link>
-              <Link href="/shop">
-                <li onClick={() => handleLinkClick("/shop")} className="my-4">
-                  SHOP
+              <Link href="/beats">
+                <li onClick={() => handleLinkClick("/beats")} className="my-4">
+                  BEATS
                 </li>
               </Link>
               <Link href="/contact">
                 <li onClick={() => handleLinkClick("/contact")}>CONTACT</li>
               </Link>
+              <div className="flex justify-center items-center p-6 ">
+                <Image
+                  onClick={() =>
+                    openInNewTab("https://www.instagram.com/_duiloh_/")
+                  }
+                  src="/instagram.svg"
+                  width="35"
+                  height="35"
+                  alt="instagram"
+                  className="cursor-pointer"
+                />
+                <Image
+                  src="/soundcloud.svg"
+                  width="40"
+                  height="40"
+                  alt="soundcloud"
+                  onClick={() =>
+                    openInNewTab("https://soundcloud.com/user-932376509")
+                  }
+                  className="cursor-pointer ml-5"
+                />
+              </div>
             </ul>
-          </div>
-          <div className="bg-second bg-opacity-50">
-            <div className="flex justify-center items-center p-6 ">
-              <Image
-                onClick={() =>
-                  openInNewTab("https://www.instagram.com/_duiloh_/")
-                }
-                src="/instagram.svg"
-                width="35"
-                height="35"
-                alt="instagram"
-                className="cursor-pointer"
-              />
-              <Image
-                src="/soundcloud.svg"
-                width="40"
-                height="40"
-                alt="soundcloud"
-                onClick={() =>
-                  openInNewTab("https://soundcloud.com/user-932376509")
-                }
-                className="cursor-pointer ml-5"
-              />
-            </div>
           </div>
         </div>
       </div>
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-30"
+          className="fixed inset-0 bg-black opacity-65 z-0"
           onClick={toggleMenu}
         ></div>
       )}

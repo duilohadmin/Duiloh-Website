@@ -29,7 +29,10 @@ function contact() {
               h-[26rem] bg-cover bg-center bg-no-repeat ${styles.vignette} ${styles["services-image"]}`}
         >
           <div className="absolute inset-0 flex items-center justify-center">
-            <h2 className="italic text-[3rem] sm:text-[4rem] md:text-[6rem] tracking-widest font-bold text-black drop-shadow-2xl opacity-95">
+            <h2
+              className="italic text-[3rem] sm:text-[4rem] md:text-[6rem] tracking-widest font-bold text-white drop-shadow-2xl opacity-95"
+              style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
+            >
               CONTACT ME
             </h2>
           </div>
