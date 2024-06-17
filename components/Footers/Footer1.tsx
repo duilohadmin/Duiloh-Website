@@ -18,7 +18,7 @@ function Footer1() {
           src="/x-white.svg"
           width="32"
           height="32"
-          alt="facebook"
+          alt="x-twitter"
           onClick={() => openInNewTab("https://x.com/Duiloh")}
           className="cursor-pointer ml-5"
         />
@@ -34,7 +34,7 @@ function Footer1() {
       <div className="flex justify-center text-xs text-white mt-4">
         © Duiloh {Year} |
         <div
-          className=" w-auto flex cursor-pointer"
+          className=" w-auto flex cursor-pointer hover:text-black"
           onClick={() => openInNewTab("https://www.naulaware.com/")}
         >
           &nbsp; Powered by{" "}

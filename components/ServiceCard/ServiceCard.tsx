@@ -14,11 +14,11 @@ export default function ServiceCard(props: ServiceCardProps) {
     shadow-md rounded-lg mb-14
     lg:max-w-[1000px]"
     >
-      <h2 className="md:hidden text-center mb-2 md:text-left  text-[2rem] md:text-[4rem] font-sugar mt-4 md:mt-0 decoration-2 underline underline-offset-4">
+      <h2 className="md:hidden text-center mb-2 md:text-left text-[2rem] md:text-[4rem] font-sugar -mt-2 md:mt-0 decoration-2 underline underline-offset-4">
         {props.title}
       </h2>
       <div className="flex flex-col md:flex-row">
-        <div className=" bg-prim md:flex-1 relative h-96 md:h-auto -mt-2 sm:mt-0  justify-center items-center border border-prim">
+        <div className=" bg-prim md:flex-1 relative h-56 sm:h-96 md:h-auto -mt-2 sm:mt-0  justify-center items-center border border-prim">
           <Image
             src={props.pic}
             alt={`Duiloh-Service-${props.title}`}

@@ -91,6 +91,14 @@ const SlideOverMenu: React.FC<SlideOverMenuProps> = ({ isBlack }) => {
                   className="cursor-pointer"
                 />
                 <Image
+                  onClick={() => openInNewTab("https://x.com/Duiloh")}
+                  src="/x-white.svg"
+                  width="35"
+                  height="35"
+                  alt="x-twitter"
+                  className="cursor-pointer ml-5"
+                />
+                <Image
                   src="/soundcloud.svg"
                   width="40"
                   height="40"

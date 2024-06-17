@@ -13,15 +13,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "header1-gradient":
-          "linear-gradient(to bottom, #ccff33 62%, rgba(255, 255, 255, 0) 100%)",
+          "linear-gradient(to bottom, #ccff33 65%, rgba(255, 255, 255, 0) 100%)",
         "header2-gradient":
-          "linear-gradient(to bottom, #806f5d 62%, rgba(255, 255, 255, 0) 100%)",
+          "linear-gradient(to top,  rgba(255, 255, 255, 0) ,#806f5d 20%)",
         "metallic-silver-gradient":
           "linear-gradient(to right, #EFEFEF, #B1B1B1)",
       },
       fontFamily: {
         mont: ["Montserrat", "ui-sans-serif"],
-        sugar: ["BrownSugar"],
+        sugar: ["BrownSugar", "ui-sans-serif"],
       },
       colors: {
         prim: "#181818",

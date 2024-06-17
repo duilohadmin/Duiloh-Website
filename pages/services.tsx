@@ -8,20 +8,23 @@ import MobH2 from "@/components/Headers/MobH2";
 function services() {
   const services = {
     s1: {
+      id: "00",
       pic: "/dj-service.jpeg",
       title: "LIVE DJ",
       subtitle: "Elevate Your Event with Professional DJ Services",
       description:
-        "Make your wedding or private party unforgettable with top-notch DJ services. Specializing in hip hop, rap, and electronic music, I create the perfect atmosphere with expert live mixing. Every beat keeps the energy high and the dance floor packed, ensuring an extraordinary experience for your guests.",
+        "Make your wedding or private party unforgettable with top-notch DJ services. Specializing in hip hop, and dance, I specialize in selecting and blending tracks that create the ideal atmosphere for any occasion. Every beat keeps the energy high and the good vibes coming, ensuring a fun and special experience for your guests.",
     },
     s2: {
+      id: "01",
       pic: "/beats-service.jpeg",
       title: "BEATS PRODUCTION",
       subtitle: "Top-Tier Beats Production for Artists and Producers",
       description:
-        "I offer high-quality beats production specializing in rap, trap, hip hop, and type beats inspired by artists like Travis Scott and Lil Tecca. These beats are perfect for rappers, artists, and producers looking to elevate their sound for entertainment and dance. To get a custom beat made, simply reach out through the email form on my website. Let’s collaborate to create something incredible together.",
+        "I offer high-quality beats specializing in chill R&B and hip hop. These beats are perfect for rappers, artists, and producers looking for smooth, chill tracks to get lost in. To get a custom beat made, simply reach out through the email form on my website. Let’s collaborate to create something incredible together.",
     },
     s3: {
+      id: "02",
       pic: "/dpack2.png",
       title: "SAMPLE PACKS",
       subtitle: "Premium Sample Packs for Next-Level Music Production",
@@ -67,9 +70,9 @@ function services() {
         className=" bg-prim w-full 
       flex flex-col items-center px-8 py-4"
       >
-        {Object.values(services).map((service, index) => (
+        {Object.values(services).map((service) => (
           <ServiceCard
-            key={index}
+            key={service.id}
             pic={service.pic}
             title={service.title}
             subtitle={service.subtitle}

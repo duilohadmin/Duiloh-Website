@@ -4,7 +4,13 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link
+          key={"google-fonts"}
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          key={"google-fonts"}
+          href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
           rel="stylesheet"
         />
       </Head>

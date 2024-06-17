@@ -1,6 +1,24 @@
+0 Take a look at his text to add in the edits
+
+0 Use this picture for Sample Pack Service: "luxury-boost.webp"
+
+0 Add "His expertise is in choosing the right song for the right time in DJ service."
+
+0 Place youtube channel pic on Beats and use new Beats description
+
+2min ADD X TO SLIDE MENU
+
+0 Add smart title to BIO file. (Executive Summary, Data, Report) - Background information of the case
+Names and titles of investigators
+Organization name
+Type of case (complaint, violation, incident, accident)
+Case summary
+
 0 Replace SoundCloud Player with Music Player Ambience Component (40 min)
 
 0 Use Cloudflare for CDN
+.
+--10 Lower height for card pictures for mobile
 .
 --5min Align the Duiloh Files Title
 --15min Align the Beat items to center horizontally with respect to the card
@@ -35,3 +53,9 @@ Youtube, TikTok, Facebook
 --Change Header1 Social Icons to Black and include functionality
 --Place functionality to Footer (Socials Link)
 [1 hour]
+--
+--
+Old .env:
+NEXT_PUBLIC_BUILDER_API_KEY=285347feceeb410283fa74e720af7784
+NEXT_PUBLIC_FORM_KEY=xdoqbble
+NEXT_PUBLIC_BASE_URL=http://localhost:3000

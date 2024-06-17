@@ -14,7 +14,7 @@ const BeatItem = ({ audioUrl, beatName }) => {
         container: waveformRef.current,
         waveColor: "#ddd",
         progressColor: "#181818",
-        height: 80,
+        height: 50,
         cursorWidth: 0,
 
         url: audioUrl,
@@ -56,7 +56,7 @@ const BeatItem = ({ audioUrl, beatName }) => {
         </button>
         <div ref={waveformRef} className="w-[100px] md:w-[190px]"></div>
       </div>
-      <p className="-mt-3 font-mont text-xs ">{beatName}</p>
+      <p className=" font-mont text-xs ">{beatName}</p>
     </div>
   );
 };

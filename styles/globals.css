@@ -1,6 +1,6 @@
 @font-face {
   font-family: "BrownSugar";
-  src: url("/public/fonts/BrownSugar.otf") format("opentype");
+  src: url("/fonts/BrownSugar.ttf") format("truetype");
 }
 
 @tailwind base;
