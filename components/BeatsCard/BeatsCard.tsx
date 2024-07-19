@@ -7,13 +7,22 @@ interface AudioFile {
   path: string;
   name: string;
 }
-
+interface BeatCardContent {
+  image: string;
+  subtitle: string;
+  description: string;
+}
 interface BeatsCardProps {
   audioFiles: AudioFile[];
   error: string | null;
+  beatCardContent: BeatCardContent;
 }
 
-const BeatsCard: React.FC<BeatsCardProps> = ({ audioFiles, error }) => {
+const BeatsCard: React.FC<BeatsCardProps> = ({
+  audioFiles,
+  error,
+  beatCardContent,
+}) => {
   /*
   console.log(
     "Rendering BeatsCard with audioFiles:",
@@ -31,7 +40,7 @@ const BeatsCard: React.FC<BeatsCardProps> = ({ audioFiles, error }) => {
         <div className="bg-prim md:flex-1 relative h-56 sm:h-96 md:h-auto -mt-2 sm:mt-0 justify-center items-center border border-black">
           <div className="absolute inset-0">
             <Image
-              src="/beatcard.jpg"
+              src={beatCardContent.image}
               alt="beat-service"
               fill
               className="object-cover"
@@ -45,15 +54,16 @@ const BeatsCard: React.FC<BeatsCardProps> = ({ audioFiles, error }) => {
             DEMOS
           </h2>
           <h3 className="text-lg mt-4 md:mt-0 md:text-xl font-mont font-bold">
-            Inspire your art with the luxurious sounds of Duiloh Instrumentals:
+            {beatCardContent.subtitle}
           </h3>
 
           <p className="mt-2 text-base md:text-lg">
-            If you&apos;re a rapper/singer who loves chill, late night, early
+            {/* If you&apos;re a rapper/singer who loves chill, late night, early
             morning beats then take a trip to YouTube and Beatstars and search
             Duiloh Instrumentals! Claim your{" "}
             <span className="font-bold">10% discount</span> with{" "}
-            <span className="font-bold">code: DUILOHSITE</span>
+            <span className="font-bold">code: DUILOHSITE</span> */}
+            {beatCardContent.description}
           </p>
           <div className="flex flex-col items-center justify-center mb-0 md:mb-6">
             <div

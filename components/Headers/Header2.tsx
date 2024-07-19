@@ -31,7 +31,7 @@ const Header2: React.FC = () => {
       {/* Left-aligned LOGO */}
       <div className="flex-grow-0">
         <div className="text-lg  font-extrabold  tracking-widest font-sugar ml-10 text-white">
-          ` DUILOH LOGO `
+          Duiloh
         </div>
       </div>
 

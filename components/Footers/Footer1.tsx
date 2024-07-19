@@ -35,7 +35,7 @@ function Footer1() {
         © Duiloh {Year} |
         <div
           className=" w-auto flex cursor-pointer hover:text-black"
-          onClick={() => openInNewTab("https://www.naulaware.com/")}
+          onClick={() => openInNewTab("https://www.instagram.com/naulaware/")}
         >
           &nbsp; Powered by{" "}
           <Image

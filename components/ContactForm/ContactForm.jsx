@@ -34,7 +34,8 @@ export default function ContactForm() {
     <div
       className="lg:flex text-white font-mont
                     bg-tert bg-opacity-90 bg-gradient-to-b from-prim
-                    pt-6 "
+                    pt-6 
+                    "
     >
       <form onSubmit={handleSubmit} className="flex flex-col px-8 w-full">
         <div className="flex w-full">

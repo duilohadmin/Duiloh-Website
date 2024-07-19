@@ -7,7 +7,7 @@ function Header1() {
       {/* Left-aligned LOGO */}
       <div className="flex-grow-0">
         <div className="text-lg font-extrabold tracking-widest ml-10 text-black font-sugar">
-          ` DUILOH LOGO `
+          Duiloh
         </div>
       </div>
 

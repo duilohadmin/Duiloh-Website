@@ -1,13 +1,53 @@
 import React from "react";
 import StreamList from "../StreamList/StreamList";
-import styles from "../../styles/landing.module.css";
+import { Suspense } from "react";
+import styles from "./Landing.module.css"; // Import CSS module for scoped styles
 
-function Landing() {
+type Landing = {
+  code: string;
+  imageUrl: string;
+};
+
+export type LandingProps = {
+  landingContent: Landing;
+};
+
+export const getLandingContentProps = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/landing`);
+  const data = await res.json();
+  const landingContent: Landing = data.data; // Adjusted to match the response structure
+
+  return {
+    props: {
+      landingContent,
+    },
+  };
+};
+
+const Landing: React.FC<LandingProps> = ({ landingContent }) => {
   return (
     <div
       className={`relative min-h-[calc(100vh-85px)] flex justify-center md:justify-start min-[1285px]:justify-end bg-cover bg-center bg-no-repeat mt-[4rem]`}
     >
-      <div className={styles["background-fade"]}></div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div
+          className={`${styles.backgroundFade} absolute inset-0`}
+          style={{
+            backgroundImage: `linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0) 50%,
+              rgba(24, 24, 24, 1) 100%
+            ),
+            url(${landingContent.imageUrl})`,
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            zIndex: 0,
+            animation: `${styles.fadeInBottomToTop} 2s ease-out`, // Using CSS module for animation
+          }}
+        ></div>
+      </Suspense>
+
       <div className="absolute inset-0 bg-prim opacity-75"></div>
       <div
         className="z-10
@@ -31,20 +71,8 @@ function Landing() {
         </p>
         <StreamList />
       </div>
-      <style jsx>{`
-        @media (max-width: 640px) {
-          .bg-cover {
-            background-size: cover !important;
-          }
-        }
-        @media (min-width: 768px) {
-          .bg-cover {
-            background-position: right 20% center !important;
-          }
-        }
-      `}</style>
     </div>
   );
-}
+};
 
 export default Landing;

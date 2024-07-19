@@ -31,6 +31,7 @@ export default function BurgerButton({ isActive, toggleMenu, isBlack }) {
       }}
     >
       <motion.button
+        aria-label="Toggle Menu"
         initial={false}
         animate={isActive ? "open" : "closed"}
         onClick={toggleMenu}

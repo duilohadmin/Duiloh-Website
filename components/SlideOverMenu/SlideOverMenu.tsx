@@ -37,7 +37,7 @@ const SlideOverMenu: React.FC<SlideOverMenuProps> = ({ isBlack }) => {
 
   return (
     <>
-      <div className="-mt-3 z-[70]">
+      <div className="-mt-1 z-[70]">
         <BurgerButton
           isActive={isOpen}
           toggleMenu={toggleMenu}
@@ -54,32 +54,23 @@ const SlideOverMenu: React.FC<SlideOverMenuProps> = ({ isBlack }) => {
         <div className="w-[75vw] h-full flex flex-col bg-black bg-opacity-50">
           <div className="text-white p-5 flex flex-col items-center flex-grow font-sugar">
             <h1 className="text-4xl font-bold">D U I L O H</h1>
-            <ul className=" mt-16 font-medium text-[2rem]">
-              <Link href="/">
-                <li onClick={() => handleLinkClick("/")}>HOME</li>
-              </Link>
-              <Link href="/bio">
-                <li onClick={() => handleLinkClick("/bio")} className="my-4">
-                  BIO
-                </li>
-              </Link>
-              <Link href="/services">
-                <li
-                  onClick={() => handleLinkClick("/services")}
-                  className="my-4"
-                >
-                  SERVICES
-                </li>
-              </Link>
-              <Link href="/beats">
-                <li onClick={() => handleLinkClick("/beats")} className="my-4">
-                  BEATS
-                </li>
-              </Link>
-              <Link href="/contact">
-                <li onClick={() => handleLinkClick("/contact")}>CONTACT</li>
-              </Link>
-              <div className="flex justify-center items-center p-6 ">
+            <ul className="mt-16 font-medium text-[2rem]">
+              <li onClick={() => handleLinkClick("/")}>
+                <Link href="/">HOME</Link>
+              </li>
+              <li onClick={() => handleLinkClick("/bio")} className="my-4">
+                <Link href="/bio">BIO</Link>
+              </li>
+              <li onClick={() => handleLinkClick("/services")} className="my-4">
+                <Link href="/services">SERVICES</Link>
+              </li>
+              <li onClick={() => handleLinkClick("/beats")} className="my-4">
+                <Link href="/beats">BEATS</Link>
+              </li>
+              <li onClick={() => handleLinkClick("/contact")}>
+                <Link href="/contact">CONTACT</Link>
+              </li>
+              <li className="flex justify-center items-center p-6">
                 <Image
                   onClick={() =>
                     openInNewTab("https://www.instagram.com/_duiloh_/")
@@ -108,7 +99,7 @@ const SlideOverMenu: React.FC<SlideOverMenuProps> = ({ isBlack }) => {
                   }
                   className="cursor-pointer ml-5"
                 />
-              </div>
+              </li>
             </ul>
           </div>
         </div>

@@ -208,16 +208,3 @@ Builder.registerComponent(
     name: "StreamList",
   }
 );
-
-Builder.registerComponent(
-  dynamic(() => import("./components/Counter/Counter")),
-  {
-    name: "Counter",
-    inputs: [
-      {
-        name: "initialCount",
-        type: "number",
-      },
-    ],
-  }
-);

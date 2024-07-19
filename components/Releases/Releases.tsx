@@ -15,13 +15,13 @@ export type ReleasesProps = {
   releases: Release[];
 };
 
-export const getServerSideProps = async () => {
+export const getReleasesProps = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/releases`);
   const releases: Release[] = await res.json();
 
   return {
     props: {
-      releases,
+      releases: releases || [], // Ensure releases is an array
     },
   };
 };

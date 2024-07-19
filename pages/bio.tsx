@@ -1,14 +1,47 @@
-import Footer1 from "@/components/Footers/Footer1";
+//import Footer1 from "@/components/Footers/Footer1";
+import { lazy } from "react";
+const Footer1 = lazy(() => import("@/components/Footers/Footer1"));
 import Header1 from "@/components/Headers/Header1";
 import Header2 from "@/components/Headers/Header2";
 import MobH1 from "@/components/Headers/MobH1";
 import MobH2 from "@/components/Headers/MobH2";
 import Image from "next/image";
 import styles from "../styles/bio-head.module.css";
-function bio() {
+import { GetServerSideProps } from "next";
+import axios from "axios";
+import Head from "next/head";
+export const getServerSideProps: GetServerSideProps = async () => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/bio`
+    );
+    const bioData = response.data.data;
+
+    return {
+      props: { bioData },
+    };
+  } catch (error) {
+    console.error("Failed to fetch bio data", error);
+    return {
+      props: { bioData: null },
+    };
+  }
+};
+type BioData = {
+  mainPicture: string;
+  secondaryPicture: string;
+};
+type BioProps = {
+  bioData: BioData;
+};
+const bio: React.FC<BioProps> = ({ bioData }) => {
   return (
     <>
       <div className="absolute top-0 left-0 w-full ">
+        <Head>
+          <title> Bio | Duiloh Official Site </title>
+          <meta name="description" content="Duiloh's About Page." />
+        </Head>
         <div className="hidden md:block">
           <Header1 />
         </div>
@@ -26,85 +59,87 @@ function bio() {
         <div
           className={`z-0
               h-[26rem] bg-cover bg-center bg-no-repeat ${styles.vignette} ${styles["vinyl-image"]}`}
-        >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h2
-              className=" text-[4rem] md:text-[6rem] italic text-white drop-shadow-2xl opacity-95"
-              style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
-            >
-              BIO
-            </h2>
-          </div>
+        ></div>
+        <div className="inset-0 flex items-center justify-center -mt-[16.29rem]">
+          <h2
+            className=" text-[4rem] md:text-[6rem] italic text-white drop-shadow-2xl opacity-95 z-20"
+            style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
+          >
+            BIO
+          </h2>
         </div>
         {/* BLUR TRANSITION DIVIDER */}
-        <div className="z-10 h-[50px] -mt-[49px] md:-mt-[50px] text-2xl font-bold  w-full text-center bg-gradient-to-b from-transparent to-prim"></div>
-        <h1
-          className="mt-0 ml-6 md:ml-32  font-bold font-bsugar text-white text-[40px]  tracking-wider"
-          style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
-        >
-          THE
-        </h1>
-        <h1
-          className="ml-6 md:ml-32 font-bsugar text-white text-[50px] tracking-wider"
-          style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
-        >
-          ARCHIVES
-        </h1>
-        <div className="relative h-full">
-          <div className="absolute inset-0 bg-[url('/texture-05.jpg')] bg-repeat bg-[length:200px_200px] rounded-2xl shadow-lg h-auto opacity-85 mx-5" />
-          <div className="py-6 sm:py-10 px-4 mx-5 flex flex-col lg:flex-row lg:px-32 text-[18px] text-black">
-            <div className="font-mont text-base md:text-lg z-10 order-2 lg:order-1 mb-4 lg:mb-0 lg:flex-1 lg:pr-6 bg-cream bg-opacity-90 px-6 py-4 rounded-lg shadow-lg">
-              <p className="mt-4 font-bold">Executive Summary</p>
-              <p className="my-4 pt-2 border-t-2 border-prim">
-                The future pulses through each beat Duiloh crafts. A journey
-                that began with a passion for melodies that ignited at a young
-                age. At just nine years old, he found his voice in the world of
-                music, penciling verses that resonated with raw emotion and
-                untapped talent.
-              </p>
-              <p className="mb-4">
-                Drawing inspiration from icons like Kendrick Lamar, Lecrae,
-                Kanye West, MF Doom, Bon Iver, and Jon Bellion, Duiloh fuses
-                diverse influences into a unique sonic tapestry that captivates
-                audiences worldwide.
-              </p>
-              <p className="mb-4">
-                A defining moment came when he made the decision to drop out of
-                college, forsaking conventional paths to pursue his true
-                calling. This leap of faith has proved transformative.
-              </p>
-              <p className="mb-4">
-                But Duiloh isn’t content with resting until he accomplishes big
-                things. In the coming years, he aspires to earn the respect of
-                his musical idols and peers, establishing himself as a revered
-                figure in the music realm. Alongside this ambition, he aims to
-                cultivate a devoted fan base, united by a shared love for his
-                artistry.
-              </p>
-              <p className="mb-4">
-                So join Duiloh on this exhilarating journey as he redefines, not
-                only the boundaries of music, but where music can go.
-              </p>
-            </div>
-            <div className="lg:ml-1 order-1 lg:order-2 relative lg:flex-1 mb-4 lg:mb-0 flex flex-col h-auto">
-              <div className="relative h-[300px] lg:h-[400px] w-full">
-                <Image
-                  src="/rappa2.jpeg"
-                  alt="dj"
-                  fill
-                  className="object-cover object-top rounded-lg shadow-lg"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+        {/* <div className="z-10 h-[50px] -mt-[49px] md:-mt-[50px] text-2xl font-bold  w-full text-center bg-gradient-to-b from-transparent to-prim"></div> */}
+        <div className="mt-[4.55rem] z-20">
+          {/* <h1
+            className="mt-0 ml-6 md:ml-32  font-bold font-bsugar text-white text-[40px]  tracking-wider "
+            style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
+          >
+            THE
+          </h1>
+          <h1
+            className="ml-6 md:ml-32 font-bsugar text-white text-[50px] tracking-wider z-20"
+            style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
+          >
+            ARCHIVES
+          </h1> */}
+          <div className="relative h-full">
+            <div className="absolute inset-0 bg-[url('/texture-05.jpg')] bg-repeat bg-[length:200px_200px] rounded-2xl shadow-lg h-auto opacity-85 mx-5" />
+            <div className="py-6 sm:py-10 px-4 mx-5 flex flex-col lg:flex-row lg:px-32 text-[18px] text-black">
+              <div className="font-mont text-base md:text-lg z-10 order-2 lg:order-1 mb-4 lg:mb-0 lg:flex-1 lg:pr-6 bg-cream bg-opacity-90 px-6 py-4 rounded-lg shadow-lg">
+                <p className="mt-4 font-bold">About Duiloh</p>
+                <p className="my-4 pt-2 border-t-2 border-prim">
+                  The future pulses through each beat Duiloh crafts. A journey
+                  that began with a passion for melodies that ignited at a young
+                  age. At just nine years old, he found his voice in the world
+                  of music, penciling verses that resonated with raw emotion and
+                  untapped talent.
+                </p>
+                <p className="mb-4">
+                  Drawing inspiration from icons like Kendrick Lamar, Lecrae,
+                  Kanye West, MF Doom, Bon Iver, and Jon Bellion, Duiloh fuses
+                  diverse influences into a unique sonic tapestry that
+                  captivates audiences worldwide.
+                </p>
+                <p className="mb-4">
+                  A defining moment came when he made the decision to drop out
+                  of college, forsaking conventional paths to pursue his true
+                  calling. This leap of faith has proved transformative.
+                </p>
+                <p className="mb-4">
+                  But Duiloh isn&apos;t content with resting until he
+                  accomplishes big things. In the coming years, he aspires to
+                  earn the respect of his musical idols and peers, establishing
+                  himself as a revered figure in the music realm. Alongside this
+                  ambition, he aims to cultivate a devoted fan base, united by a
+                  shared love for his artistry.
+                </p>
+                <p className="mb-4">
+                  So join Duiloh on this exhilarating journey as he redefines,
+                  not only the boundaries of music, but where music can go.
+                </p>
               </div>
-              <div className="ml-1 relative w-full hidden lg:block mt-4 aspect-w-16 aspect-h-9">
-                <div className="relative w-full h-96">
+              <div className="lg:ml-1 order-1 lg:order-2 relative lg:flex-1 mb-4 lg:mb-0 flex flex-col h-auto">
+                <div className="relative h-[300px] lg:h-[400px] w-full">
                   <Image
-                    src="/declass.png"
+                    src={bioData.mainPicture}
                     alt="dj"
                     fill
-                    className="object-cover "
+                    loading="lazy"
+                    className="object-cover object-top rounded-lg shadow-lg"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
+                </div>
+                <div className="ml-1 relative w-full hidden lg:block mt-4 aspect-w-16 aspect-h-9">
+                  <div className="relative w-full h-96">
+                    <Image
+                      src={bioData.secondaryPicture}
+                      alt="dj-secondary"
+                      fill
+                      className="object-cover "
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -117,10 +152,6 @@ function bio() {
       <Footer1 />
     </>
   );
-}
+};
 
 export default bio;
-/*
-<div className=" p-6 ">
-
-*/

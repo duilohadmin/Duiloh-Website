@@ -7,7 +7,8 @@ import Footer1 from "@/components/Footers/Footer1";
 import styles from "../styles/bio-head.module.css";
 import BeatsCard from "@/components/BeatsCard/BeatsCard";
 import { GetServerSideProps } from "next";
-
+import axios from "axios";
+import Head from "next/head";
 interface AudioFile {
   path: string;
   name: string;
@@ -16,12 +17,25 @@ interface AudioFile {
 interface BeatsProps {
   audioFiles: AudioFile[];
   error: string | null;
+  beatCardContent: {
+    image: string;
+    subtitle: string;
+    description: string;
+  };
 }
 
-const Beats: React.FC<BeatsProps> = ({ audioFiles, error }) => {
+const Beats: React.FC<BeatsProps> = ({
+  audioFiles,
+  error,
+  beatCardContent,
+}) => {
   return (
     <>
       <div className="absolute top-0 left-0 w-full ">
+        <Head>
+          <title> Beats | Duiloh Official Site </title>
+          <meta name="description" content="Duiloh's Beats." />
+        </Head>
         <div className="hidden md:block">
           <Header1 />
         </div>
@@ -29,7 +43,7 @@ const Beats: React.FC<BeatsProps> = ({ audioFiles, error }) => {
           <MobH1 />
         </div>
       </div>
-      <div className="flex min-h-screen flex-col bg-prim  -z-10">
+      <div className="flex min-h-screen flex-col bg-prim -z-10">
         <div className="hidden md:block">
           <Header2 />
         </div>
@@ -38,19 +52,22 @@ const Beats: React.FC<BeatsProps> = ({ audioFiles, error }) => {
         </div>
         <div
           className={`z-0 h-[26rem] bg-cover bg-center bg-no-repeat ${styles.vignette} ${styles["services-image"]}`}
-        >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h2
-              className="italic text-[4rem] md:text-[6rem] tracking-widest font-bold text-white drop-shadow-2xl opacity-95"
-              style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
-            >
-              BEATS
-            </h2>
-          </div>
+        ></div>
+        <div className="inset-0 flex items-center justify-center -mt-[16.29rem]">
+          <h2
+            className="italic text-[4rem] md:text-[6rem] tracking-widest font-bold text-white drop-shadow-2xl opacity-95 z-20"
+            style={{ fontFamily: "BrownSugar", fontWeight: "bolder" }}
+          >
+            BEATS
+          </h2>
         </div>
-        <div className=" z-10 h-[50px] -mt-[49px] md:-mt-[50px] text-2xl font-bold  w-full text-center bg-gradient-to-b from-transparent to-prim"></div>
-        <div className="flex flex-col justify-center items-center p-5">
-          <BeatsCard audioFiles={audioFiles} error={error} />
+        <div className="h-[116px]"></div>
+        <div className="flex flex-col justify-center items-center p-5 -mt-16 z-20">
+          <BeatsCard
+            audioFiles={audioFiles}
+            error={error}
+            beatCardContent={beatCardContent}
+          />
         </div>
       </div>
       <Footer1 />
@@ -58,27 +75,44 @@ const Beats: React.FC<BeatsProps> = ({ audioFiles, error }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps<BeatsProps> = async () => {
   try {
-    console.log("Fetching data from API...");
+    // console.log("Fetching audio files data from API...");
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/beats`);
     const data = await res.json();
-    //console.log("API response data:", data);
+    // console.log("API response data:", data);
 
-    const { audioFiles, error } = data;
+    // Filter out empty objects
+    const audioFiles = data.audioFiles.filter(
+      (item: AudioFile) => item.path && item.name
+    );
+    const error = data.error || null;
+
+    // console.log("Fetching beat card content data from API...");
+    const beatCardContentRes = await axios.get(
+      `https://cdn.builder.io/api/v3/content/beat-card-content?apiKey=71356eebae614ee3a6b93a673f6be478&limit=1`
+    );
+    const beatCardContent = beatCardContentRes.data.results[0].data;
+    // console.log("Beat card content data:", beatCardContent);
 
     return {
       props: {
-        audioFiles: audioFiles || [],
-        error: error || null,
+        audioFiles,
+        error,
+        beatCardContent,
       },
     };
   } catch (error) {
-    console.error("Failed to fetch audio files:", error);
+    console.error("Failed to fetch data:", error);
     return {
       props: {
         audioFiles: [],
-        error: "Failed to load audio files",
+        error: "Failed to load data",
+        beatCardContent: {
+          image: "",
+          subtitle: "",
+          description: "",
+        },
       },
     };
   }

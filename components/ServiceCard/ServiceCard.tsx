@@ -12,7 +12,7 @@ export default function ServiceCard(props: ServiceCardProps) {
     <div
       className="bg-cream bg-opacity-80 p-5 text-black 
     shadow-md rounded-lg mb-14
-    lg:max-w-[1000px]"
+    lg:max-w-[1000px] z-20"
     >
       <h2 className="md:hidden text-center mb-2 md:text-left text-[2rem] md:text-[4rem] font-sugar -mt-2 md:mt-0 decoration-2 underline underline-offset-4">
         {props.title}
